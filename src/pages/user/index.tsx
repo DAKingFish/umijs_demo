@@ -31,55 +31,59 @@ const User = (props: any) => {
   const add = () => {
     list.push();
     setrender(!render); // 刷新
-    props.addClick && props.addClick(); // 父组件通信
+    addClick && addClick(); // 父组件通信
   };
   const remote = () => {
     list.splice(0, 1);
     setrender(!render); // 刷新
-    props.removeClick && props.removeClick();
+    removeClick && removeClick();
   };
   const [render, setrender] = useState(false); // 控制刷新
   return (
-    <div>
-      <div style={{ margin: 10 }}>
-        <Button type="primary" onClick={add} style={{ marginRight: 20 }}>
-          <Icon type="plus" />
-        </Button>
-        <Button type="primary" onClick={remote}>
-          <Icon type="minus" />
-        </Button>
+    <div className="app">
+      <div className="app-top">
+        <div style={{ margin: 10 }}>
+          <Button type="primary" onClick={add} style={{ marginRight: 20 }}>
+            <Icon type="plus" />
+          </Button>
+          <Button type="primary" onClick={remote}>
+            <Icon type="minus" />
+          </Button>
+        </div>
       </div>
-      {list.map((item: any) => {
-        //遍历属性并给定专有的样式盒子
-        return (
-          <div className="zhihuModel">
-            <div className="model_top">
-              <img src={item.imgsrc} style={{ width: 300, height: 140 }} />
-            </div>
-            <div className="model_mid">
-              <div className="mid_left">
-                <div className="title">{item.title}</div>
-                <div className="subtitle">{item.subtitle}</div>
+      <div className="app-text">
+        {list.map((item: any) => {
+          //遍历属性并给定专有的样式盒子
+          return (
+            <div className="zhihuModel">
+              <div className="model-top">
+                <img src={item.imgsrc} />
               </div>
-              <div className="mid_right">
-                <div className="btnTitle">
-                  <Button>{item.btnTitle}</Button>
+              <div className="model-mid">
+                <div className="mid-left">
+                  <div className="title">{item.title}</div>
+                  <div className="subtitle">{item.subtitle}</div>
+                </div>
+                <div className="mid-right">
+                  <div className="btnTitle">
+                    <Button>{item.btnTitle}</Button>
+                  </div>
                 </div>
               </div>
+              <div className="model-bottom">
+                {item.textlist.map((item: any) => {
+                  return (
+                    <div>
+                      <span>{item.subtitle}</span>
+                      <span>{item.title}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="model_button">
-              {item.textlist.map((item: any) => {
-                return (
-                  <div>
-                    <span>{item.subtitle}</span>
-                    <span>{item.title}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
