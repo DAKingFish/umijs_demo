@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './index.less';
 import Radio from './radio';
+import Switch from './switch';
+import Button from './button';
 export default () => {
   const [value, setValue] = useState(); // 选中的值
   return (
@@ -31,6 +33,13 @@ export default () => {
           },
         ]}
       />
+      <Switch></Switch>
+      <Button
+        value={100}
+        onChange={(value: any) => {
+          setValue(value);
+        }}
+      ></Button>
     </div>
   );
 };

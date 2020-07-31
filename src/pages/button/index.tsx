@@ -5,14 +5,15 @@ import './index.less'; //导入类或文件要加''
 //以组件名的方式抛出
 //单一index.tsx直接抛出
 //创建组件名
-const Switch = (props: any) => {
+const Button = (props: any) => {
   //组件名不能重复,常识
-  //选择开关里面的属性
-  const { checked, setChecked } = props; //const 定义常量,props就是父子组件的信息传递
-  //
+  //按钮的里面的属性
+  const { value, onChange } = props; //const 定义常量,props就是父子组件的信息传递
   return (
     //return 返回逻辑dome显示 是要()
-    <div>我是switch</div>
+    <div>
+      <button>我是Button</button>
+    </div>
   );
 };
-export default Switch;
+export default Button;
