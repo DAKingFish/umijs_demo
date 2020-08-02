@@ -8,11 +8,20 @@ import './index.less'; //导入类或文件要加''
 const Button = (props: any) => {
   //组件名不能重复,常识
   //按钮的里面的属性
-  const { value, onChange } = props; //const 定义常量,props就是父子组件的信息传递
+  const { value, onClick } = props; //const 定义常量,props就是父子组件的信息传递
+  const [number, setNu] = useState(0);
   return (
     //return 返回逻辑dome显示 是要()
     <div>
-      <button>我是Button</button>
+      <button
+        onClick={() => {
+          //加个刷新
+          setNu(number + 1);
+          onClick(value + number);
+        }}
+      >
+        我是Button
+      </button>
     </div>
   );
 };

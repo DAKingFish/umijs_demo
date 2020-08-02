@@ -36,7 +36,7 @@ export default () => {
       <Switch></Switch>
       <Button
         value={100}
-        onChange={(value: any) => {
+        onClick={(value: any) => {
           setValue(value);
         }}
       ></Button>
