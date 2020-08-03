@@ -7,21 +7,9 @@ import { Icon } from 'antd';
 //在文件只有一个index情况下直接抛出
 export default (props: any) => {
   //创建展示集合
-  const [taglist, setTaglist]: any = useState([
-    {
-      id: 1,
-      value: '实例1',
-    },
-    {
-      id: 2,
-      value: '实例1',
-    },
-    {
-      id: 3,
-      value: '实例1',
-    },
-  ]);
+  const [taglist, setTaglist]: any = useState([]);
   const [value, setValue] = useState('');
+
   return (
     <div className="app">
       <div className="app_top">
@@ -47,6 +35,24 @@ export default (props: any) => {
           value={value}
           onChange={e => {
             setValue(e.target.value);
+          }}
+          onKeyDown={(e: any) => {
+            if (e.keyCode === 13) {
+              //去重操作用some()来判断
+              if (
+                !taglist.some((item: any) => {
+                  return item.value === e.target.value;
+                })
+              ) {
+                taglist.push({
+                  //添加到taglist
+                  id: Math.random(),
+                  value: e.target.value,
+                });
+              }
+              setTaglist([...taglist]); // render
+              setValue('');
+            }
           }}
           onBlur={e => {
             //去重操作用some()来判断
