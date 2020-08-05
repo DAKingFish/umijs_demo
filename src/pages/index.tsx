@@ -3,6 +3,7 @@ import styles from './index.less';
 import Radio from './radio';
 import Switch from './switch';
 import Button from './button';
+import Input from './input';
 export default () => {
   const [value, setValue] = useState(); // 选中的值
   return (
@@ -40,6 +41,11 @@ export default () => {
           setValue(value);
         }}
       ></Button>
+      <Input
+        onPressEnter={(e: any) => {
+          alert(e.target.value);
+        }}
+      />
     </div>
   );
 };
