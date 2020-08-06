@@ -4,6 +4,7 @@ import Radio from './radio';
 import Switch from './switch';
 import Button from './button';
 import Input from './input';
+import Icon from './icon';
 export default () => {
   const [value, setValue] = useState(); // 选中的值
   return (
@@ -46,6 +47,10 @@ export default () => {
           alert(e.target.value);
         }}
       />
+      <Icon type=""></Icon>
+      <Icon type=" icon-weizhi"></Icon>
+      <Icon type=" icon-yunjiankongBCM"></Icon>
+      <Icon type={() => {}}></Icon>
     </div>
   );
 };
