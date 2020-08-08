@@ -48,9 +48,18 @@ export default () => {
         }}
       />
       <Icon type=""></Icon>
-      <Icon type=" icon-weizhi"></Icon>
-      <Icon type=" icon-yunjiankongBCM"></Icon>
-      <Icon type={() => {}}></Icon>
+      <Icon
+        type="icon-weizhi"
+        onClick={() => {
+          alert('123');
+        }}
+      ></Icon>
+      <Icon
+        type="icon-yunjiankongBCM"
+        onClick={() => {
+          alert('ewew');
+        }}
+      ></Icon>
     </div>
   );
 };
